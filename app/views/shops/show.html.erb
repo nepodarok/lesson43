@@ -12,3 +12,14 @@
 
 <%= link_to 'Edit', edit_shop_path(@shop) %> |
 <%= link_to 'Back', shops_path %>
+
+<h2>ТОВАРЫ</h2>
+
+<% @shop.dishes.each do |dish| %>
+
+  <%= dish.name %><br>
+   <%= image_tag dish.image.url(:thumb) %>
+   <%= dish.price %>
+   <br>
+   <hr>
+<% end %>

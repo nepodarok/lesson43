@@ -16,50 +16,50 @@ class DishesController < ApplicationController
   def new
     @dish = Dish.new
   end
-
-  # GET /dishes/1/edit
-  def edit
-  end
-
-  # POST /dishes
-  # POST /dishes.json
-  def create
-    @dish = Dish.new(dish_params)
-
-    respond_to do |format|
-      if @dish.save
-        format.html { redirect_to @dish, notice: 'Dish was successfully created.' }
-        format.json { render :show, status: :created, location: @dish }
-      else
-        format.html { render :new }
-        format.json { render json: @dish.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /dishes/1
-  # PATCH/PUT /dishes/1.json
-  def update
-    respond_to do |format|
-      if @dish.update(dish_params)
-        format.html { redirect_to @dish, notice: 'Dish was successfully updated.' }
-        format.json { render :show, status: :ok, location: @dish }
-      else
-        format.html { render :edit }
-        format.json { render json: @dish.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /dishes/1
-  # DELETE /dishes/1.json
-  def destroy
-    @dish.destroy
-    respond_to do |format|
-      format.html { redirect_to dishes_url, notice: 'Dish was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
+  #
+  # # GET /dishes/1/edit
+  # def edit
+  # end
+  #
+  # # POST /dishes
+  # # POST /dishes.json
+  # def create
+  #   @dish = Dish.new(dish_params)
+  #
+  #   respond_to do |format|
+  #     if @dish.save
+  #       format.html { redirect_to @dish, notice: 'Dish was successfully created.' }
+  #       format.json { render :show, status: :created, location: @dish }
+  #     else
+  #       format.html { render :new }
+  #       format.json { render json: @dish.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
+  #
+  # # PATCH/PUT /dishes/1
+  # # PATCH/PUT /dishes/1.json
+  # def update
+  #   respond_to do |format|
+  #     if @dish.update(dish_params)
+  #       format.html { redirect_to @dish, notice: 'Dish was successfully updated.' }
+  #       format.json { render :show, status: :ok, location: @dish }
+  #     else
+  #       format.html { render :edit }
+  #       format.json { render json: @dish.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
+  #
+  # # DELETE /dishes/1
+  # # DELETE /dishes/1.json
+  # def destroy
+  #   @dish.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to dishes_url, notice: 'Dish was successfully destroyed.' }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.
