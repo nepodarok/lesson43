@@ -4,9 +4,10 @@
   <%= item.dish.name %>  (<%=item.count_item%>) - <%=item.dish.shop.name%>: <%=item.dish.price*item.count_item%> сом<br>
 <% end %>
 
-<b>Общая стоимость корзины: <%= total_cart_cost %></b>
+<b>Общая стоимость корзины: <%= total_cart_cost %></b><br>
+<b><%= link_to "Оформить заказ", '/carts/make_order' %></b>
 <hr>
-<b id="del_all"><%= link_to "Очистить корзину", carts_delete_expired_path, remote: true,  method: :delete%></b>
+<b id="del_all"><%= link_to "Очистить корзину", carts_delete_expired_path, method: :delete%></b>
 
 
 <% else %>

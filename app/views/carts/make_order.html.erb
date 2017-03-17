@@ -1,0 +1,20 @@
+<h2>Подтверждение заказа</h2>
+
+<% if user_signed_in? %>
+<h2>В Вашей корзине</h2>
+<% current_user.carts.each do |item|%>
+  <%= item.dish.name %>  (<%=item.count_item%>) - <%=item.dish.shop.name%>: <%=item.dish.price*item.count_item%> сом<br>
+<% end %>
+
+<b>Общая стоимость корзины: <%= total_cart_cost %></b>
+<hr>
+<h2>Ваши контактные данные </h2>
+<h3>Телефон: <%=current_user.phone%></h3>
+<h3>Адрес: <%=current_user.addr%></h3>
+<h3>Имя: <%=current_user.name%></h3>
+
+<h1>Подтверждение</h1>
+<b><%= link_to "Подвтерждение заказа", '/carts/confirm_order' %></b>
+<% else %>
+<h4>После авторизации доступна корзина!</h4>
+<% end %>

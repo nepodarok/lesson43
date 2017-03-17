@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170316123552) do
+ActiveRecord::Schema.define(version: 20170317135652) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -71,6 +71,14 @@ ActiveRecord::Schema.define(version: 20170316123552) do
   end
 
   add_index "dishes", ["shop_id"], name: "index_dishes_on_shop_id"
+
+  create_table "history_orders", force: :cascade do |t|
+    t.text     "details"
+    t.text     "contacts"
+    t.boolean  "status",     default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
 
   create_table "shops", force: :cascade do |t|
     t.string   "name"

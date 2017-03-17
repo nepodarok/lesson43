@@ -29,7 +29,36 @@ class CartsController < ApplicationController
      end
 
      redirect_to :back
+  end
 
+  def make_order
+    @carts = Cart.where(user_id: current_user.id)
+    # render 'make_order'
+  end
+
+  def confirm_order
+
+    @carts = Cart.where(user_id: current_user.id)
+    @total = total_cart_cost.to_s
+    @order = HistoryOrder.new
+    @order.details = 'Заказ: '
+    @carts.each do |cart|
+      row = cart.dish.name + cart.count_item.to_s + " порция/й из " + cart.dish.shop.name + " на сумму " +(cart.dish.price*cart.count_item).to_s + "сом. ----    "
+      @order.details = @order.details + row
+
+      cart.destroy
+    end
+    @order.details = @order.details + "Общий чек на сумму:" + @total
+
+    @order.contacts = "Кто: " + current_user.name.to_s + " адресс: " + current_user.addr.to_s + " телефон: " + current_user.phone.to_s
+
+   @order.save
+
+
+
+
+     flash['success'] = 'Заказ принят, за Вами выехали'
+     redirect_to root_path
   end
 
 

@@ -2,12 +2,15 @@ Rails.application.routes.draw do
   root 'home#index'
   #
     delete 'carts/delete_expired'
+    get 'carts/make_order' => 'carts#make_order'
+    get 'carts/confirm_order' => 'carts#confirm_order'
   devise_for :users
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :dishes, only: [:index]
   resources :shops, only: [:show, :index]
   resources :carts
+  get 'carts/make_order' => 'carts#make_order'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
