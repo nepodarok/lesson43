@@ -1,0 +1,14 @@
+<% if user_signed_in? %>
+<h2>В Вашей корзине</h2>
+<% current_user.carts.each do |item|%>
+  <%= item.dish.name %>  (<%=item.count_item%>) - <%=item.dish.shop.name%>: <%=item.dish.price*item.count_item%> сом<br>
+<% end %>
+
+<b>Общая стоимость корзины: <%= total_cart_cost %></b>
+<hr>
+<b id="del_all"><%= link_to "Очистить корзину", carts_delete_expired_path, remote: true,  method: :delete%></b>
+
+
+<% else %>
+<h4>После авторизации доступна корзина!</h4>
+<% end %>

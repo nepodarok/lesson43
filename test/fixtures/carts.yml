@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  count_item: 1
+  dish_id: 
+  user_id: 
+
+two:
+  count_item: 1
+  dish_id: 
+  user_id: 

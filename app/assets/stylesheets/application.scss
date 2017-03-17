@@ -81,3 +81,19 @@ aside {
   padding: 5px;
   float: left; width: 18%;
  }
+
+ .layer1 {
+ background-color: #ebebeb; /* Цвет фона слоя */
+ padding: 5px; /* Поля вокруг текста */
+ float: left; /* Обтекание по правому краю */
+ width: 300px; /* Ширина слоя */
+}
+.layer2 {
+ // background-color: #c0c0c0; /* Цвет фона слоя */
+ padding: 5px; /* Поля вокруг текста */
+ width: 900px; /* Ширина слоя */
+ float: left; /* Обтекание по правому краю */
+}
+.clear {
+ clear: left; /* Отмена обтекания */
+}

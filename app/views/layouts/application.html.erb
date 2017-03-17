@@ -23,6 +23,12 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li><%= render 'layouts/shops' %></li>
+          <li><% if user_signed_in? %>
+<h4>Hi <%= current_user.email %> || <%= link_to "Exit", destroy_user_session_path, method: :delete %></h4>
+<% else %>
+<h4><%= link_to "Sign_up", new_user_registration_path %> || <%= link_to "Log in", new_user_session_path  %></h4>
+<% end %></li>
+
         </ul>
       </div>
     </div>
@@ -31,7 +37,14 @@
   <% flash.each do |message_type, message| %>
     <div class="alert alert-<%= message_type %>"><%= message %></div>
   <% end %>
-<%= yield %>
+  <div class="layer1">
+  <%= render 'layouts/cart' %>
+  </div>
+  <div class="layer2">
+      <%= yield %>
+  </div>
+  <div class="clear"></div>
+
 <%= debug(params) if Rails.env.development? %>
 </body>
 </html>

@@ -20,14 +20,18 @@
         <td><%= dish.desc %></td>
         <td><%= dish.price %></td>
         <td><%= dish.shop %></td>
-        <td><%= link_to 'Show', dish %></td>
-        <td><%= link_to 'Edit', edit_dish_path(dish) %></td>
-        <td><%= link_to 'Destroy', dish, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+        <%= form_for Cart.new, url: carts_path, method: :post do |f| %>
+
+        <%= f.number_field :count_item, :value => "1" %>
+        <%= f.hidden_field :dish_id, :value => dish.id %>
+
+        <%= f.submit "Добавить в корзину", class: "btn btn-primary"%>
+
+        <% end %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Dish', new_dish_path %>

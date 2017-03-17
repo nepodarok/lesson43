@@ -1,25 +1,33 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Ням-Ням:</strong>
   <%= @shop.name %>
 </p>
 
 <p>
-  <strong>Desc:</strong>
+  <strong>Описалово:</strong>
   <%= @shop.desc %>
 </p>
 
-<%= link_to 'Edit', edit_shop_path(@shop) %> |
-<%= link_to 'Back', shops_path %>
+<%= link_to 'К выбору Ням-Ням', shops_path %>
 
-<h2>ТОВАРЫ</h2>
+<h2>Ням ням от   <%= @shop.name %></h2>
 
 <% @shop.dishes.each do |dish| %>
 
   <%= dish.name %><br>
    <%= image_tag dish.image.url(:thumb) %>
    <%= dish.price %>
+
+   <%= form_for Cart.new, url: carts_path, method: :post do |f| %>
+
+   <%= f.number_field :count_item, :value => "1" %>
+   <%= f.hidden_field :dish_id, :value => dish.id %>
+
+   <%= f.submit "Добавить в корзину", class: "btn btn-primary"%>
+
+   <% end %>
    <br>
    <hr>
 <% end %>
