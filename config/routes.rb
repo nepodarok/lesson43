@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'home#index'
+  root 'shops#index'
   #
     delete 'carts/delete_expired'
     get 'carts/make_order' => 'carts#make_order'

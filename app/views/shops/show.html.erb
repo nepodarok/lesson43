@@ -25,7 +25,7 @@
    <%= f.number_field :count_item, :value => "1" %>
    <%= f.hidden_field :dish_id, :value => dish.id %>
 
-   <%= f.submit "Добавить в корзину", class: "btn btn-primary"%>
+   <%= f.submit "Добавить в корзину", class: "btn btn-primary", id: "id-#{dish.id}"%>
 
    <% end %>
    <br>

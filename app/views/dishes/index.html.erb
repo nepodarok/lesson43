@@ -19,7 +19,7 @@
         <td><%= dish.name %></td>
         <td><%= dish.desc %></td>
         <td><%= dish.price %></td>
-        <td><%= dish.shop %></td>
+        <td><%= dish.shop.name %></td>
         <td>
         <%= form_for Cart.new, url: carts_path, method: :post do |f| %>
 
