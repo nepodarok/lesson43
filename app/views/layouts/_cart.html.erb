@@ -5,7 +5,9 @@
 <% end %>
 
 <b>Общая стоимость корзины: <%= total_cart_cost %></b><br>
+<% unless total_cart_cost == 0 %>
 <b><%= link_to "Оформить заказ", '/carts/make_order' %></b>
+<% end %>
 <hr>
 <b id="del_all"><%= link_to "Очистить корзину", carts_delete_expired_path, method: :delete%></b>
 

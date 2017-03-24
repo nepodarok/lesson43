@@ -2,7 +2,6 @@ When(/^залогинен пользователь с email "([^"]*)" и пар�
 	visit('/users/sign_in')
 	within("#new_user") do
   	fill_in('Email', with: email)
-
   	fill_in('Password', with: password)
   	click_button 'Log in'
       sleep 3
@@ -10,19 +9,14 @@ When(/^залогинен пользователь с email "([^"]*)" и пар�
 
 end
 
-When(/^создаст продукт с данным:$/) do |table|
+Если(/^перейдет в магазин и добавит первое блюдо ев корзину$/) do
   sleep 2
   visit('/shops/1')
   sleep 2
-  click_button ("Добавить в корзину")
-  sleep 8
-  #  do
-  #   sleep 15
-  # end
-  # table is a Cucumber::MultilineArgument::DataTable
-  
+  click_button("Добавить в корзину")
+  sleep 2
 end
 
-When(/^продукт "([^"]*)" видно в списке продуктов$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
+То(/^ссылка "([^"]*)" видна в боковом сайдбаре$/) do |link_text|
+  find_link(link_text).visible?
 end
